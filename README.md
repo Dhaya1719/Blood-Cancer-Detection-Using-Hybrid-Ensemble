@@ -1,30 +1,51 @@
 # 🩸 Blood Cancer Detection using Hybrid Ensemble Deep Learning with Explainable AI
 
-An automated blood cancer (Leukemia) detection system using Hybrid Ensemble Deep Learning and Explainable AI (Grad-CAM). The project classifies microscopic blood smear images into **Leukemia** and **Normal** classes by combining multiple CNN models to improve prediction accuracy and reliability.
+An automated blood cancer (Leukemia) detection system that classifies microscopic blood smear images into **Leukemia** and **Normal** using a hybrid ensemble of deep learning models. The project combines **ResNet50, DenseNet121, and InceptionV3** with ensemble learning techniques and **Grad-CAM Explainable AI** to improve prediction accuracy and model interpretability.
 
-## 📌 Features
+---
 
-- Blood cancer (Leukemia) classification from blood smear images
-- ResNet50, DenseNet121, and InceptionV3 based CNN models
+## ✨ Features
+
+- Automated Leukemia detection from blood smear images
+- Deep learning models:
+  - ResNet50
+  - DenseNet121
+  - InceptionV3
 - Ensemble Learning
   - Hard Voting
   - Soft Voting
   - Learnable Ensemble (Meta Model)
 - Class imbalance handling using Class Weights
 - Explainable AI using Grad-CAM
-- Single image prediction pipeline
-- Performance evaluation using confusion matrix and classification report
+- Single image prediction
+- Performance evaluation using Classification Report and Confusion Matrix
 
 ---
 
-## 🏗️ Model Architecture
+## 🏗️ Model Pipeline
 
-Input Image
-→ Data Preprocessing
-→ ResNet50 + DenseNet121 + InceptionV3
-→ Ensemble Learning
-→ Final Prediction
-→ Grad-CAM Visualization
+```
+Input Blood Smear Image
+        │
+        ▼
+Data Preprocessing
+        │
+        ▼
+ResNet50    DenseNet121    InceptionV3
+        │         │            │
+        └─────────┴────────────┘
+                  │
+          Ensemble Learning
+     (Hard Voting | Soft Voting |
+       Learnable Ensemble)
+                  │
+                  ▼
+         Final Prediction
+        (Leukemia / Normal)
+                  │
+                  ▼
+      Grad-CAM Visualization
+```
 
 ---
 
@@ -35,8 +56,11 @@ Input Image
 - Total Images: **10,661**
 - Training Images: **8,528**
 - Validation Images: **2,133**
+- Training Split: **80%**
+- Validation Split: **20%**
 
-Download Dataset:
+Dataset Link:
+
 https://www.kaggle.com/datasets/shafayou/c-nmc-2019-dataset
 
 ---
@@ -54,10 +78,10 @@ https://www.kaggle.com/datasets/shafayou/c-nmc-2019-dataset
 
 ---
 
-## 📈 Results
+## 📊 Results
 
 | Model | Accuracy |
-|--------|----------|
+|--------|---------:|
 | ResNet50 | 87.06% |
 | DenseNet121 | 78.86% |
 | InceptionV3 | 91.05% |
@@ -67,23 +91,24 @@ https://www.kaggle.com/datasets/shafayou/c-nmc-2019-dataset
 
 ---
 
-## 📷 Sample Results
+## 📦 Pre-trained Models
 
-### System Architecture
+The trained models are not included in this repository due to GitHub file size limitations.
 
-![Architecture](images/architecture.png)
+Download all trained models from Google Drive:
 
----
+**Google Drive:**  
+YOUR_DRIVE_FOLDER_LINK
 
-### Grad-CAM Visualization
+After downloading, place the files inside the `models/` folder.
 
-![GradCAM](images/gradcam.png)
-
----
-
-### Single Image Prediction
-
-![Prediction](images/prediction.png)
+```
+models/
+├── resnet50.keras
+├── densenet121.keras
+├── inceptionv3.keras
+└── meta_model.keras
+```
 
 ---
 
@@ -94,21 +119,36 @@ Blood-Cancer-Detection/
 │
 ├── README.md
 ├── requirements.txt
-├── Blood_Cancer_Detection.ipynb
+├── .gitignore
+├── LICENSE
+│
+├── blood-cancer-iden (3).ipynb
+│
 ├── models/
-├── images/
+│
 └── report/
+    └── Final_Project_Report.pdf
 ```
 
 ---
 
 ## 🚀 Installation
 
+Clone the repository:
+
 ```bash
-git clone https://github.com/Dhaya1719/Blood-Cancer-Detection-Using-Hybrid-Ensemble
+git clone https://github.com/Dhaya1719/Blood-Cancer-Detection-Using-Hybrid-Ensemble.git
+```
 
+Move into the project directory:
+
+```bash
 cd Blood-Cancer-Detection
+```
 
+Install the required dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
@@ -116,14 +156,27 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-Open the notebook and execute all cells.
+Launch Jupyter Notebook:
 
 ```bash
 jupyter notebook Blood_Cancer_Detection.ipynb
 ```
 
+Run all notebook cells sequentially.
+
+> **Note:** Download the trained models from the Google Drive link above and place them inside the `models/` folder before running inference.
+
+---
+
+## 🎯 Project Highlights
+
+- Built a hybrid ensemble framework using **ResNet50, DenseNet121, and InceptionV3**.
+- Achieved **93.30% accuracy** using the **Soft Voting Ensemble**.
+- Integrated **Grad-CAM Explainable AI** for visual interpretation of predictions.
+- Implemented a **Learnable Ensemble (Meta Model)** to improve classification reliability.
+
 ---
 
 ## 📜 License
 
-This project is developed for educational and research purposes.
+This project is intended for educational and research purposes.
