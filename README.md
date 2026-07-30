@@ -100,10 +100,10 @@ After downloading, create a folder named **models** in the project directory and
 
 ```
 models/
-├── resnet50.keras
-├── densenet121.keras
-├── inceptionv3.keras
-└── meta_model.keras
+├── resnet50.h5
+├── densenet121.h5
+├── inceptionv3.h5
+└── meta_model.h5
 ```
 
 > **Note:** Keep the model filenames unchanged so the notebook can load them correctly.
